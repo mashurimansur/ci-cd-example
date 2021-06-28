@@ -30,7 +30,6 @@ jobs:
         host: ${{ secrets.HOST }}
         username: ${{ secrets.USERNAME }}
         key: ${{ secrets.KEY }}
-        passphrase: ${{ secrets.PASSPHRASE }}
         port: ${{ secrets.PORT }}
         source: "app"
         target: "/var/www/go/test/"
@@ -42,7 +41,6 @@ jobs:
         username: ${{ secrets.USERNAME }}
         port: ${{ secrets.PORT }}
         key: ${{ secrets.KEY }}
-        passphrase: ${{ secrets.PASSPHRASE }}
         script: |
           cd /var/www/go/test/
           ls
