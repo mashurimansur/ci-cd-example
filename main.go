@@ -15,7 +15,6 @@ func main() {
 	log.Fatal(app.Listen(":3000"))
 }
 
-// ini comment
 // Setup Setup a fiber app with all of its routes
 func Setup() *fiber.App {
 	// Initialize a new app
