@@ -10,19 +10,19 @@ jobs:
   deploy:
     runs-on: ubuntu-18.04
     steps:
-    - name: Install Go
+    - name: intalling Go
       uses: actions/setup-go@v2
       with:
         go-version: 1.16.x
 
-    - name: Checkout code
+    - name: checkout code
       uses: actions/checkout@v2
 
-    - name: Test
+    - name: testing app
       run: go test ./...
 
-    - name: Build app 
-      run: go build -o app main.go
+    - name: build app 
+      run: go build -o app-kaderisasi-go main.go
 
     - name: copy file via ssh password
       uses: appleboy/scp-action@master
@@ -31,7 +31,7 @@ jobs:
         username: ${{ secrets.USERNAME }}
         password: ${{ secrets.PASSWORD }}
         port: ${{ secrets.PORT }}
-        source: "app"
+        source: "app-kaderisasi-go"
         target: "/var/www/go/test/"
 
     - name: Executing remote command
