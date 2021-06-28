@@ -8,6 +8,7 @@ name: Deploy
 on: [push, pull_request]
 
 jobs:
+  deploy:
     runs-on: ubuntu-18.04
     steps:
     - name: Install Go
