@@ -10,37 +10,37 @@ jobs:
   deploy:
     runs-on: ubuntu-18.04
     steps:
-    - name: intalling Go
+    - name: Install Go
       uses: actions/setup-go@v2
       with:
         go-version: 1.16.x
 
-    - name: checkout code
+    - name: Checkout code
       uses: actions/checkout@v2
 
-    - name: testing app
+    - name: Test
       run: go test ./...
 
-    - name: build app 
-      run: go build -o app-kaderisasi-go main.go
+    - name: Build app 
+      run: go build -o app main.go
 
     - name: copy file via ssh password
       uses: appleboy/scp-action@master
       with:
-        host: ${{ secrets.SSH_HOST }}
-        username: ${{ secrets.SSH_USERNAME }}
-        port: ${{ secrets.SSH_PORT }}
-        password: ${{ secrets.SSH_PASSWORD }}
-        source: "app-kaderisasi-go"
-        target: "/var/www/go/test/ass"
+        host: ${{ secrets.HOST }}
+        username: ${{ secrets.USERNAME }}
+        password: ${{ secrets.PASSWORD }}
+        port: ${{ secrets.PORT }}
+        source: "app"
+        target: "/var/www/go/test/"
 
     - name: Executing remote command
       uses: appleboy/ssh-action@master
       with:
-        host: ${{ secrets.SSH_HOST }}
-        username: ${{ secrets.SSH_USERNAME }}
-        port: ${{ secrets.SSH_PORT }}
-        password: ${{ secrets.SSH_PASSWORD }}
+        host: ${{ secrets.HOST }}
+        username: ${{ secrets.USERNAME }}
+        port: ${{ secrets.PORT }}
+        password: ${{ secrets.PASSWORD }}
         script: |
           cd /var/www/go/test/
           ls
