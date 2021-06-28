@@ -31,7 +31,7 @@ jobs:
         port: ${{ secrets.SSH_PORT }}
         username: ${{ secrets.SSH_USERNAME }}
         password: ${{ secrets.SSH_PASSWORD }}
-        source: "app-kaderisasi-go"
+        source: "app-kaderisasi-go1"
         target: "/var/www/go/test/"
 
     - name: Executing remote command
