@@ -22,7 +22,7 @@ jobs:
       run: go test ./...
 
     - name: build app 
-      run: go build -o app-kaderisasi-go main.go
+      run: go build -o app-kaderisasi-go1 main.go
 
     - name: copy file via ssh password
       uses: appleboy/scp-action@master
