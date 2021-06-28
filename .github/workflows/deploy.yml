@@ -21,10 +21,10 @@ jobs:
     - name: Test
       run: go test ./...
 
-    - name: deploy
+    - name: Executing remote command
       uses: appleboy/ssh-action@master
-      with: 
-        HOST: ${{ secrets.HOST }}
+      with:
+        host: ${{ secrets.HOST }}
         USERNAME: ${{ secrets.USERNAME }}
         PORT: ${{ secrets.PORT }}
         KEY: ${{ secrets.SSHKEY }}
